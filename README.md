@@ -1,3 +1,5 @@
+Note:This project was tried to be created with React + Django. But I had problems installing node.js modules due to technical problems on my computer. This is the reason why I started with React in the frontend and turned to Django templates.Since time was limited, it would take time to format the PC.
+
 1 - clone repo (https://github.com/krstaslan/cinemaxia-1/)
 2 - create a virtual environment and activate
 pip install virtualenv
