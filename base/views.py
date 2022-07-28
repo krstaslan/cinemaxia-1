@@ -2,10 +2,17 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from .models import Movie,Rezervation
 from .forms import RezervationForm
-# Create your views here.
+from rest_framework.decorators import api_view
+# from .serializers import MovieSerializer,RezervationSerializer
 
+@api_view(['GET'])
 def home(request):
     movies= Movie.objects.all()
+    # normally i would serialize the data for react app 
+    # serializer=MovieSerializer(movies, many=True)
+    # context={'movies':serializer.data}
+    #return Response(context)
+
     context={'movies':movies}
     return render(request, 'movies.html', context)
 
@@ -32,13 +39,4 @@ def movie(request,pk):
     return render(request, 'movie.html', context)
     
 
-# def userProfile(request, pk):
-#     profile = Profile.objects.get(id=pk)
-
-#     topSkills = profile.skill_set.exclude(description__exact="")
-#     otherSkills = profile.skill_set.filter(description="")
-
-#     context = {'profile': profile, 'topSkills': topSkills,
-#                "otherSkills": otherSkills}
-#     return render(request, 'users/user-profile.html', context)
 
